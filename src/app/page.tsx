@@ -7,21 +7,17 @@ import Navbar from "@/components/navigation/Navbar";
 import Hero from "@/components/hero/Hero";
 
 import AIBackground from "@/components/background/AIBackground";
+import GlobalCanvas from "@/components/global/GlobalCanvas";
 import MouseSpotlight from "@/components/effects/MouseSpotlight";
 import CustomCursor from "@/components/cursor/CustomCursor";
 
 import About from "@/sections/About/About";
 import Skills from "@/sections/Skills/Skills";
 import Experience from "@/sections/Experience/Experience";
-
-// Uncomment when these files exist
 // import Projects from "@/sections/Projects/Projects";
-
 import Achievements from "@/sections/Achievements/Achievements";
 import Certifications from "@/sections/Certifications/Certifications";
 import Contact from "@/sections/Contact/Contact";
-
-// Uncomment when Footer exists
 // import Footer from "@/sections/Footer/Footer";
 
 export default function Home() {
@@ -32,6 +28,9 @@ export default function Home() {
       {/* Global Background */}
       <AIBackground />
 
+      {/* Global GPU Particle System */}
+      <GlobalCanvas />
+
       {/* Global Effects */}
       <CustomCursor />
       <MouseSpotlight />
@@ -41,10 +40,8 @@ export default function Home() {
         <BootLoader onComplete={() => setLoaded(true)} />
       ) : (
         <>
-          {/* Navigation */}
           <Navbar />
 
-          {/* Main Content */}
           <main className="relative z-10 overflow-x-hidden">
             <Hero />
 
