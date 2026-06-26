@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -12,8 +12,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://project-aether-16l8.vercel.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://project-aether-16l8.vercel.app"),
+  metadataBase: new URL(SITE_URL),
 
   title: {
     default: "Project AETHER | Aryan",
@@ -21,53 +23,72 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Aryan's futuristic AI-inspired portfolio showcasing Full Stack Development, Artificial Intelligence, Machine Learning, modern web engineering, and premium software projects.",
+    "Aryan's premium AI-inspired portfolio showcasing Artificial Intelligence, Machine Learning, Full Stack Development, Next.js, React, TypeScript, Python, and modern software engineering.",
+
+  applicationName: "Project AETHER",
 
   keywords: [
     "Aryan",
-    "Aryan Portfolio",
     "Project AETHER",
+    "Portfolio",
     "AI Engineer",
     "Machine Learning",
     "Artificial Intelligence",
-    "Next.js Portfolio",
-    "React Developer",
-    "Full Stack Developer",
+    "Next.js",
+    "React",
+    "TypeScript",
     "Python",
     "Django",
-    "TypeScript",
-    "Tailwind CSS",
-    "Framer Motion",
+    "Full Stack Developer",
+    "Software Engineer",
+    "Computer Science",
   ],
 
-  authors: [
-    {
-      name: "Aryan",
-    },
-  ],
+  authors: [{ name: "Aryan" }],
 
   creator: "Aryan",
 
   publisher: "Aryan",
 
+  alternates: {
+    canonical: SITE_URL,
+  },
+
   robots: {
     index: true,
     follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 
   openGraph: {
     title: "Project AETHER | Aryan",
 
     description:
-      "Premium AI-inspired portfolio built using Next.js, TypeScript, Tailwind CSS and Framer Motion.",
+      "Premium AI-inspired portfolio built using Next.js, TypeScript, Tailwind CSS, Three.js and Framer Motion.",
 
-    url: "https://project-aether-16l8.vercel.app",
+    url: SITE_URL,
 
     siteName: "Project AETHER",
 
     locale: "en_US",
 
     type: "website",
+
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Project AETHER",
+      },
+    ],
   },
 
   twitter: {
@@ -76,10 +97,35 @@ export const metadata: Metadata = {
     title: "Project AETHER | Aryan",
 
     description:
-      "AI Engineer • Full Stack Developer • Building modern software experiences.",
+      "AI Engineer • Full Stack Developer • Machine Learning",
 
-    creator: "@aryan",
+    images: ["/og-image.png"],
   },
+
+  icons: {
+    icon: [
+      {
+        url: "/favicon.ico",
+      },
+    ],
+
+    shortcut: "/favicon.ico",
+
+    apple: "/favicon.ico",
+  },
+
+  appleWebApp: {
+    capable: true,
+    title: "Project AETHER",
+    statusBarStyle: "black-translucent",
+  },
+
+  category: "technology",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#050505",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({
