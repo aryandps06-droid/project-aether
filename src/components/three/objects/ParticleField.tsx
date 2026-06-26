@@ -17,14 +17,9 @@ export default function ParticleField() {
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(2 * Math.random() - 1);
 
-      pos[i * 3] =
-        radius * Math.sin(phi) * Math.cos(theta);
-
-      pos[i * 3 + 1] =
-        radius * Math.sin(phi) * Math.sin(theta);
-
-      pos[i * 3 + 2] =
-        radius * Math.cos(phi);
+      pos[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+      pos[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+      pos[i * 3 + 2] = radius * Math.cos(phi);
     }
 
     return pos;
@@ -33,9 +28,7 @@ export default function ParticleField() {
   useFrame((state) => {
     if (!points.current) return;
 
-    points.current.rotation.y =
-      state.clock.elapsedTime * 0.04;
-
+    points.current.rotation.y = state.clock.elapsedTime * 0.04;
     points.current.rotation.x =
       Math.sin(state.clock.elapsedTime * 0.2) * 0.1;
   });
@@ -45,9 +38,7 @@ export default function ParticleField() {
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
-          count={positions.length / 3}
-          array={positions}
-          itemSize={3}
+          args={[positions, 3]}
         />
       </bufferGeometry>
 
